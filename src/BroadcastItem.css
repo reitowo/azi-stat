@@ -1,0 +1,12 @@
+.broadcast-head {
+    display: table;
+    width: 100%;
+}
+
+.broadcast-row {
+    display: table-row; 
+}
+
+​​ .broadcast-col { 
+    display: table-column; 
+}
