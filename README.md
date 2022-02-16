@@ -14,7 +14,7 @@
 
 --------
 ### 获取指定直播歌曲记录
-- GET https://api.schwarzer.wang/azi/broadcasts?broadcast={}
+- GET https://api.schwarzer.wang/azi/songs?broadcast={}
 
 `broadcast` **必填** 直播场次ID
 
