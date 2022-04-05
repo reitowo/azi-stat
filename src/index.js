@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Foot from './Foot';
 import ScrollToTop from "react-scroll-to-top";
+import Search from './Search';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,7 +18,8 @@ ReactDOM.render(
     <div className="App">
       <header className="App-header" style={{paddingTop: '20px'}}>
         <Router>
-          <Route path={['/', '/stat']} component={SongStat} />
+          <Route exact path={['/search/:name']} component={Search} />
+          <Route exact path={['/', '/stat']} component={SongStat} />
         </Router>
         <Foot />
       </header>

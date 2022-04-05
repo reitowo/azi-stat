@@ -1,5 +1,5 @@
 import { Accordion, Button, Form, InputGroup, Image, Placeholder, Badge, Table } from 'react-bootstrap'
-import React from "react"; 
+import React from "react";
 import moment from 'moment';
 
 class BroadcastItem extends React.Component {
@@ -45,11 +45,10 @@ class BroadcastItem extends React.Component {
             } else {
                 var song = <Table striped bordered hover size="sm">
                     <thead>
-                        <tr style={{fontSize: '1.2vmax'}}>
-                            <th>歌曲名</th>
-                            <th>版本</th>
-                            <th>时间</th>
-                            <th>轴</th>
+                        <tr style={{ fontSize: '18px' }}>
+                            <th>歌曲名</th> 
+                            <th>歌手</th> 
+                            <th>时间</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -58,12 +57,14 @@ class BroadcastItem extends React.Component {
                             var d = t - this.startTime
                             var minutes = Math.floor(d / 1000 / 60)
                             var hour = Math.floor(minutes / 60)
-                            var minute = minutes % 60
-                            return <tr style={{fontSize: '1vmax'}}>
-                                <td>{a.name}</td>
-                                <td>{a.artist}</td>
-                                <td><Badge bg="secondary">{moment(t).format("HH:mm")}</Badge></td>
-                                <td><Badge bg="primary">+{hour.toString().padStart(2, '0')}:{minute.toString().padStart(2, '0')}</Badge></td>
+                            var minute = minutes % 60 
+                            return <tr style={{ fontSize: '16px' }}>
+                                <td>{a.url ? <a style={{}} href={a.url}>{a.name}</a> : a.name}</td> 
+                                <td>{a.artist}</td> 
+                                <td>
+                                    <Badge bg="secondary">{moment(t).format("HH:mm")}</Badge>
+                                    <Badge style={{ marginLeft: '10px' }} bg="primary">+{hour.toString().padStart(2, '0')}:{minute.toString().padStart(2, '0')}</Badge>
+                                </td>
                             </tr>
                         })}
                     </tbody>
@@ -76,20 +77,17 @@ class BroadcastItem extends React.Component {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td style={{ maxWidth: '100px'}}>
+                                    <td style={{ maxWidth: '80px' }}>
                                         <Image fluid rounded thumbnail src={this.props.broadcast.cover} referrerPolicy="no-referrer" />
                                     </td>
                                     <td style={{ width: 'auto', paddingLeft: '10px' }}>
-                                        <table> 
+                                        <table>
                                             <tbody>
                                                 <tr>
-                                                    <td style={{ fontSize: '20px' }}>{this.props.broadcast.title}</td>
+                                                    <td style={{ fontSize: '16px' }}>{this.props.broadcast.title}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td style={{ fontSize: '1vmax' }}>{moment(this.startTime).format('YYYY/MM/DD')}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style={{ fontSize: '1vmax' }}>{moment(this.startTime).format('HH:mm')}{this.endTime ? ' - ' + moment(this.endTime).format('HH:mm') : ''}</td>
+                                                    <td style={{ fontSize: '16px' }}>{moment(this.startTime).format('YYYY/MM/DD')} {moment(this.startTime).format('HH:mm')}{this.endTime ? '-' + moment(this.endTime).format('HH:mm') : ''}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -98,7 +96,7 @@ class BroadcastItem extends React.Component {
                             </tbody>
                         </table>
                     </Accordion.Header>
-                    <Accordion.Body>
+                    <Accordion.Body style={{ paddingBottom: '0px' }}>
                         {song}
                     </Accordion.Body>
                 </Accordion.Item>

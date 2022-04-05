@@ -12,6 +12,8 @@
 
 `take` **必填** 获取数量 (<=50)
 
+`omitNone` **选填** 是否忽略没有唱歌的场次
+
 --------
 ### 获取指定直播歌曲记录
 - GET https://api.schwarzer.wang/azi/broadcasts?broadcast={}
@@ -19,7 +21,15 @@
 `broadcast` **必填** 直播场次ID
 
 --------
-### **开发中** 搜索指定歌曲名的所有直播场次
+### 搜索指定歌曲名的所有直播场次
 - GET https://api.schwarzer.wang/azi/search?q={} 
 
 `q` **必填** 歌曲名
+
+---
+
+### 搜索可能的歌曲名列表
+
+- GET https://api.schwarzer.wang/azi/search/pre?q={} 
+
+`q` **必填** 名称
